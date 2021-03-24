@@ -1,0 +1,101 @@
+#include <pthread.h>
+
+#include <stdio.h>
+
+#include <stdlib.h>
+
+#include <semaphore.h>
+
+pthread_mutex_t mutex_a, mutex_b;
+
+int shared_x, shared_y;
+
+void * Hello(void * input) {
+
+int i;
+
+for (i = 0; i < 5; i++) {
+
+pthread_mutex_lock( & mutex_a);
+
+printf("^^^^^^^^^^^^^^^^^^^^^^^\n");
+
+printf("T1 iterasi ke %d\n", i);
+
+printf("T1 nilai x %d\n", shared_x);
+
+printf("T1 nilai y %d\n", shared_y);
+
+shared_x++;
+
+printf("T1 Menggunakan resource x dengan nilai %d\n", shared_x);
+
+pthread_mutex_lock( & mutex_b);
+
+shared_y++;
+
+printf("T1 Menggunakan resource x = %d dan y = %d\n", shared_x, shared_y);
+
+printf("vvvvvvvvvvvvvvvvvvvvvvvv\n");
+
+pthread_mutex_unlock( & mutex_b);
+
+pthread_mutex_unlock( & mutex_a);
+
+}
+
+}
+
+void * World(void * input) {
+
+int i;
+
+for (i = 0; i < 5; i++) {
+
+pthread_mutex_lock( & mutex_b);
+
+printf("^^^^^^^^^^^^^^^^^^^^^^^\n");
+
+printf("T2 iterasi ke %d\n", i);
+
+printf("T2 nilai x %d\n", shared_x);
+
+printf("T2 nilai y %d\n", shared_y);
+
+shared_y--;
+
+printf("T2 Menggunakan resource y = %d\n", shared_y);
+
+pthread_mutex_lock( & mutex_a);
+
+shared_x--;
+
+printf("T2 Menggunakan resource y = %d dan x = %d\n", shared_y, shared_x);
+
+printf("vvvvvvvvvvvvvvvvvvvvvvvv\n");
+
+pthread_mutex_unlock( & mutex_a);
+
+pthread_mutex_unlock( & mutex_b);
+
+}
+
+}
+
+int main(int argc, char * argv[]) {
+
+pthread_t thread_1, thread_2;
+
+shared_x = 0;
+
+shared_y = 100;
+
+pthread_create( & thread_1, NULL, Hello, NULL);
+
+pthread_create( & thread_2, NULL, World, NULL);
+
+pthread_join(thread_1, NULL);
+
+pthread_join(thread_2, NULL);
+
+}
