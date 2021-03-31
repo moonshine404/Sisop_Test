@@ -1,0 +1,30 @@
+//include untuk printf
+#include <stdlib.h>
+//include untuk menggunakan syscall
+#include <unistd.h>
+
+int our_init_data; //inisiasi dengan nilai 30
+int our_noinit_data;
+
+void our_prints(void)
+{
+        int our_local_data = 1;
+        printf("\nPid of the process is = %d", getpid());
+        printf("\nAddresses which fall into:");
+        printf("\n 1) Data  segment = %", //type data pointer
+                &our_init_data);
+        printf("\n 2) BSS   segment = %",//type data pointer
+                &our_noinit_data);
+        printf("\n 3) Code  segment = %",//type data pointer
+                &our_prints);
+        printf("\n 4) Stack segment =%\n",//type data pointer
+                &our_local_data);
+
+	while(1);
+}
+
+int main()
+{
+// panggil fungsi yang telah dibuat
+        	// return berhasil
+}
