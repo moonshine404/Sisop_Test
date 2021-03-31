@@ -1,0 +1,4 @@
+ 1) Data  segment = 0x56254ee6e010
+ 2) BSS   segment = 0x56254ee6e018
+ 3) Code  segment = 0x56254ec6d68a
+ 4) Stack segment = 0x7ffda34bada4
