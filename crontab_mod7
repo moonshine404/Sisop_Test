@@ -1,0 +1,8 @@
+#!/bin/bash
+
+xmessage "$(printf "Hello world\nSetiap 15 menit")"
+
+#!/bin/bash
+
+xmessage "$(printf "Melakukan backup setiap jam 01:00")"
+
