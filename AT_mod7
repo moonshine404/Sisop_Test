@@ -1,0 +1,3 @@
+#!/bin/bash
+
+xmessage "$(printf "Remember-remember the twenty four of April\nThe gunpowder treason and plot.")"
