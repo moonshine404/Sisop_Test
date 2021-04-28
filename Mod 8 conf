@@ -1,0 +1,1 @@
+dd if=/dev/zero of=/home/mikogizka/Documents/disk_1 bs=500M count=1
