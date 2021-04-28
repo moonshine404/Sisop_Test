@@ -1,1 +1,6 @@
 dd if=/dev/zero of=/home/mikogizka/Documents/disk_1 bs=500M count=1
+
+mount /home/praktikan/Documents/disk_1 /media/test_fs
+chown -R 1001:1001 /media/test_fs
+cd /media/test_fs; mkdir new_folder; dst
+umount /media/test_fs
