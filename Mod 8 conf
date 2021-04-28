@@ -8,3 +8,6 @@ umount /media/test_fs
 dd if=/dev/zero of=/home/mikogizka/Documents/disk_2 bs=500M count=1
 mkfs.ext4 /home/mikogizka/Documents/disk_2
 debugfs -w /home/mikogizka/Documents/disk_2
+iii.write /etc/passwd file_1.txt
+iv.write /etc/pam.conf file_2.txt
+ls -l <no_inode> contoh: ls -l <2> atau perintah ls -l
