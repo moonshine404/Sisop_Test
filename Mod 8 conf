@@ -11,3 +11,5 @@ debugfs -w /home/mikogizka/Documents/disk_2
 iii.write /etc/passwd file_1.txt
 iv.write /etc/pam.conf file_2.txt
 ls -l <no_inode> contoh: ls -l <2> atau perintah ls -l
+
+head -c 1KB /dev/urandom > /tmp/test.txt
